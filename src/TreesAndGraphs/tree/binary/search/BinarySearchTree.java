@@ -1,14 +1,14 @@
-package TreesAndGraphs.tree.binary;
+package TreesAndGraphs.tree.binary.search;
 
-import java.util.TreeSet;
+import TreesAndGraphs.tree.binary.Node;
 
-public class BinaryTree {
+public class BinarySearchTree {
     private Node root;
-    public BinaryTree() {
+    public BinarySearchTree() {
         root = null;
     }
 
-    public BinaryTree(Node root) {
+    public BinarySearchTree(Node root) {
         this.root = root;
     }
 
@@ -56,4 +56,7 @@ public class BinaryTree {
         return Math.max(leftHeight, rightHeight) + 1;
     }
 
+    public Node getRoot() {
+        return root;
+    }
 }

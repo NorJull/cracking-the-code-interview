@@ -1,6 +1,6 @@
 package TreesAndGraphs;
 
-import TreesAndGraphs.tree.binary.BinaryTree;
+import TreesAndGraphs.tree.binary.search.BinarySearchTree;
 import TreesAndGraphs.tree.binary.Node;
 
 import java.util.Arrays;
@@ -17,14 +17,14 @@ public class MinimalTree {
         List<Integer> numbers = Arrays.asList(1,2,3,4,5);
 
 
-        BinaryTree bt = createMinimalTree(numbers);
+        BinarySearchTree bt = createMinimalTree(numbers);
         bt.printInOrder();
 
         bt = createMinimalTreeBookSolution(numbers);
         bt.printInOrder();
     }
-    private static BinaryTree createMinimalTree(List<Integer> numbers) {
-        BinaryTree binaryTree = new BinaryTree();
+    private static BinarySearchTree createMinimalTree(List<Integer> numbers) {
+        BinarySearchTree binaryTree = new BinarySearchTree();
         insertArrayElements(numbers, binaryTree, 0, numbers.size() -1);
         return binaryTree;
     }
@@ -33,7 +33,7 @@ public class MinimalTree {
     /*
     * All elements of array are visited ( O(N) ) and each time we call bt.insert(node) that travearse the tree (O(LogN))
     * */
-    private static void insertArrayElements(List<Integer> numbers, BinaryTree binaryTree, int start, int end) {
+    private static void insertArrayElements(List<Integer> numbers, BinarySearchTree binaryTree, int start, int end) {
         int numOfElements = (end - start) + 1;
 
         if(isEven(numOfElements)) {
@@ -72,9 +72,9 @@ public class MinimalTree {
     }
 
     //O(N)
-    private static BinaryTree createMinimalTreeBookSolution(List<Integer> numbers) {
+    private static BinarySearchTree createMinimalTreeBookSolution(List<Integer> numbers) {
         Node root = createMinimalBST(numbers, 0, numbers.size() - 1 );
-        return new BinaryTree(root);
+        return new BinarySearchTree(root);
     }
 
     private static Node createMinimalBST(List<Integer> numbers, int start, int end) {
