@@ -30,6 +30,25 @@ public class BinarySearchTree {
         return root;
     }
 
+    public void insertWithParents(int value) {
+        root = insertRecursively(root, null, value);
+    }
+    private Node insertRecursively(Node root, Node parent, int value) {
+        if(root == null) {
+            Node n = new Node(value);
+            n.parent = parent;
+            return n;
+        }
+
+        if(value > root.value) {
+            root.right = insertRecursively(root.right, root, value);
+        } else if (value < root.value) {
+            root.left = insertRecursively(root.left, root, value);
+        }
+
+        return root;
+    }
+
     public void printInOrder() {
         printInOrderRecursively(root);
     }

@@ -4,11 +4,13 @@ public class Node {
     public Integer value;
     public Node left;
     public Node right;
+    public Node parent;
 
     public Node (Integer value) {
         this.value = value;
         this.left = null;
         this.right = null;
+        this.parent = null;
     }
 
     public Integer getValue() {
@@ -33,5 +35,12 @@ public class Node {
 
     public void setRight(Node right) {
         this.right = right;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "value=" + value +
+                '}';
     }
 }
